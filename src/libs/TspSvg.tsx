@@ -24,7 +24,6 @@ function toXY(ev: React.MouseEvent<SVGSVGElement, MouseEvent>): XY {
 type Method = '2opt' | '3opt' | 'ga';
 
 function TspSvg() {
-
   const [points, setPoints] = React.useState<XY[]>([]);
   const [sequences, setSequences] = React.useState<number[]>([]);
   const [method, setMethod] = React.useState<Method | null>('ga');
@@ -99,7 +98,7 @@ function TspSvg() {
   const dist = calculateDistance(points, sequences);
   return (
     <Stack align="center">
-      <Title>Traveling salesman problem</Title>
+      <Title>TSP Solver</Title>
       <Text>Click: Adds one point</Text>
       <svg width={600} height={600} style={{backgroundColor: '#ddd'}} onClick={handleClick}>
         {
