@@ -24,12 +24,12 @@ function toXY(ev: React.MouseEvent<SVGSVGElement, MouseEvent>): XY {
 type Method = '2opt' | '3opt' | 'ga';
 
 function TspSvg() {
+
   const [points, setPoints] = React.useState<XY[]>([]);
   const [sequences, setSequences] = React.useState<number[]>([]);
-  const [method, setMethod] = React.useState<Method | null>(null);
-  const [autoIterate, setAutoIterate] = React.useState(false);
+  const [method, setMethod] = React.useState<Method | null>('ga');
+  const [autoIterate, setAutoIterate] = React.useState(true);
   const [genes, setGenes] = React.useState<Gene[]>([]);  
-
   const handleClick: React.MouseEventHandler<SVGSVGElement> = (e) => {
     const p = toXY(e);
     setSequences([]);
