@@ -17,11 +17,15 @@ function reverseArray<T>(route: T[], s: number, t: number) {
   }
 }
 
-function calculateDistance(pts: readonly XY[]) {
-  let p0 = pts[pts.length - 1];
+function calculateDistance(pts: readonly XY[], seq: readonly number[]) {
+  if (pts.length !== seq.length) {
+    return Number.NaN;
+  }
+
+  let p0 = pts[seq[pts.length - 1]];
   let distSq = 0;
   for (let i = 0; i < pts.length; ++i) {
-    const p1 = pts[i];
+    const p1 = pts[seq[i]];
     const [x1, y1] = p1;
     const [x0, y0] = p0;
     const dx = x1 - x0;
